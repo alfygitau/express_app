@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const userRoutes = require("../users/userRoutes");
 const studentRoutes = require("../students/studentRoutes");
+const cors = require('cors')
 
 const server = express();
 const PORT = 8000;
@@ -10,6 +11,7 @@ const PORT = 8000;
 server.use(bodyParser.urlencoded());
 // parse application/json
 server.use(bodyParser.json());
+app.use(cors())
 
 server.use("/users", userRoutes);
 server.use("/students", studentRoutes);
