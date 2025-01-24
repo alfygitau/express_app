@@ -2,11 +2,10 @@
   "name": "express_app",
   "version": "1.0.0",
   "description": "an express app",
-  "main": "server.js",
+  "main": "api/server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
-    "build": "echo 'No build step required'"
+    "start": "node api/server.js",
+    "dev": "nodemon api/server.js"
   },
   "author": "",
   "license": "ISC",

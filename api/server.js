@@ -1,10 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const userRoutes = require("./users/userRoutes");
-const studentRoutes = require("./students/studentRoutes");
+const userRoutes = require("../users/userRoutes");
+const studentRoutes = require("../students/studentRoutes");
 
 const server = express();
-const PORT = 8080;
+const PORT = 3000;
 
 // parse application/x-www-form-urlencoded
 server.use(bodyParser.urlencoded());
