@@ -2,16 +2,20 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const userRoutes = require("../users/userRoutes");
 const studentRoutes = require("../students/studentRoutes");
-const cors = require('cors')
+const cors = require("cors");
+const connection = require("../db/connect");
 
 const server = express();
 const PORT = 8000;
+
+// coonect to db
+connection();
 
 // parse application/x-www-form-urlencoded
 server.use(bodyParser.urlencoded());
 // parse application/json
 server.use(bodyParser.json());
-app.use(cors())
+server.use(cors());
 
 server.use("/users", userRoutes);
 server.use("/students", studentRoutes);
