@@ -4,7 +4,7 @@ const userRoutes = require("./users/userRoutes");
 const studentRoutes = require("./students/studentRoutes");
 
 const server = express();
-const PORT = 8000;
+const PORT = 8080;
 
 // parse application/x-www-form-urlencoded
 server.use(bodyParser.urlencoded());
