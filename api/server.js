@@ -1,24 +1,28 @@
+require("dotenv").config();
 const express = require("express");
-const bodyParser = require("body-parser");
-const userRoutes = require("../users/userRoutes");
-const studentRoutes = require("../students/studentRoutes");
+const userRoutes = require("../users/routes");
+const schoolRoutes = require("../school/routes");
+const subjectRoutes = require("../subject/routes");
+const classRoutes = require("../myClass/routes");
+const authRoutes = require("../auth/routes");
 const cors = require("cors");
 const connection = require("../db/connect");
-
 const server = express();
 const PORT = 8000;
 
 // coonect to db
 connection();
 
-// parse application/x-www-form-urlencoded
-server.use(bodyParser.urlencoded());
-// parse application/json
-server.use(bodyParser.json());
+// Use Express's built-in body parsing middleware
+server.use(express.json()); // For parsing application/json
+server.use(express.urlencoded({ extended: true }));
 server.use(cors());
 
 server.use("/users", userRoutes);
-server.use("/students", studentRoutes);
+server.use("/", schoolRoutes);
+server.use("/", subjectRoutes);
+server.use("/", classRoutes);
+server.use("/auth", authRoutes);
 
 server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
