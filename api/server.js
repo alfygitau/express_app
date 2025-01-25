@@ -5,6 +5,9 @@ const schoolRoutes = require("../school/routes");
 const subjectRoutes = require("../subject/routes");
 const classRoutes = require("../myClass/routes");
 const authRoutes = require("../auth/routes");
+const marksRoutes = require("../marks/routes");
+const assessmentRoutes = require("../assessment/routes");
+const reportRoutes = require("../report/routes");
 const cors = require("cors");
 const connection = require("../db/connect");
 const server = express();
@@ -23,6 +26,9 @@ server.use("/", schoolRoutes);
 server.use("/", subjectRoutes);
 server.use("/", classRoutes);
 server.use("/auth", authRoutes);
+server.use("/", marksRoutes);
+server.use("/", assessmentRoutes);
+server.use("/", reportRoutes);
 
 server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
