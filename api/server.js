@@ -19,7 +19,12 @@ connection();
 // Use Express's built-in body parsing middleware
 server.use(express.json()); // For parsing application/json
 server.use(express.urlencoded({ extended: true }));
-server.use(cors());
+
+var corsOptions = {
+  origin: ["http://localhost:3000"],
+  optionsSuccessStatus: 200,
+};
+server.use(cors(corsOptions));
 
 server.use("/users", userRoutes);
 server.use("/", schoolRoutes);
